@@ -1,0 +1,25 @@
+Name:          string-quote
+Version:       0.0.1
+License:       BSD3
+License-file:  LICENSE
+Category:      Data
+Author:        Audrey Tang
+Copyright:     Audrey Tang
+Maintainer:    Audrey Tang <audreyt@audreyt.org>
+Stability:     unstable
+Cabal-Version: >= 1.6
+Build-Depends: base
+Build-Type:    Custom
+Synopsis:      QuasiQuoter for non-interpolated strings, texts and bytestrings.
+Description:   QuasiQuoter for non-interpolated strings, texts and bytestrings.
+Data-Files:    tests/Test.hs
+
+Source-Repository head
+    type: git
+    location: git://github.com/audreyt/string-quote.git
+
+library
+    extensions:      TemplateHaskell
+    build-depends:   base > 3 && < 5, template-haskell >= 2.5
+    hs-source-dirs:  src
+    exposed-modules: Data.String.Quote
