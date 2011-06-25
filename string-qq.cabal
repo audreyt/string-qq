@@ -13,6 +13,7 @@ Build-Type:    Custom
 Synopsis:      QuasiQuoter for non-interpolated strings, texts and bytestrings.
 Description:   QuasiQuoter for non-interpolated strings, texts and bytestrings.
 Data-Files:    tests/Test.hs
+Tested-With:   GHC==6.10.1, GHC==7.0.2
 
 Source-Repository head
     type: git
@@ -20,6 +21,6 @@ Source-Repository head
 
 library
     extensions:      TemplateHaskell
-    build-depends:   base > 3 && < 6, template-haskell >= 2.5
+    build-depends:   base > 3 && < 6, template-haskell >= 2
     hs-source-dirs:  src
     exposed-modules: Data.String.QQ

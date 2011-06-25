@@ -1,4 +1,4 @@
-{-# LANGUAGE QuasiQuotes, ExtendedDefaultRules #-}
+{-# LANGUAGE QuasiQuotes, ExtendedDefaultRules, CPP #-}
 
 module Main where
 
@@ -6,6 +6,7 @@ import Data.Text
 import Data.String.QQ
 import Test.HUnit
 
+#if (__GLASGOW_HASKELL__ >= 700)
 test0 = assertBool "" ([s||] == "")
 test1 = assertBool "" ([s|1|] == "1")
 test2 = assertBool "" ([s|2|] == pack "2")
@@ -15,6 +16,17 @@ test1' = assertBool "" ([s|
 1|] == "1")
 test2' = assertBool "" ([s|
 2|] == pack "2")
+#else
+test0 = assertBool "" ([$s||] == "")
+test1 = assertBool "" ([$s|1|] == "1")
+test2 = assertBool "" ([$s|2|] == pack "2")
+test0' = assertBool "" ([$s|
+|] == "")
+test1' = assertBool "" ([$s|
+1|] == "1")
+test2' = assertBool "" ([$s|
+2|] == pack "2")
+#endif
 
 tests = TestList
     [ TestLabel "Empty String" $ TestCase test0

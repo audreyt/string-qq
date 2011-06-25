@@ -1,4 +1,4 @@
-{-# LANGUAGE TemplateHaskell #-}
+{-# LANGUAGE TemplateHaskell, CPP #-}
 
 -- | QuasiQuoter for non-interpolated strings, texts and bytestrings.
 --
@@ -18,6 +18,8 @@
 --
 -- Any instance of the IsString type is permitted.
 -- 
+-- (For GHC versions 6, write "[$s||]" instead of "[s||]".)
+--
 module Data.String.QQ (s) where
 import GHC.Exts (IsString(..))
 import qualified Language.Haskell.TH as TH
@@ -27,8 +29,10 @@ import Language.Haskell.TH.Quote
 s :: QuasiQuoter
 s = QuasiQuoter ((\a -> [|fromString a|]) . trimLeadingNewline . removeCRs)
                  (error "Cannot use q as a pattern")
+#if (__GLASGOW_HASKELL__ >= 700)
                  (error "Cannot use q as a type")
                  (error "Cannot use q as a dec")
+#endif
     where
     removeCRs = filter (/= '\r')
     trimLeadingNewline ('\n':xs) = xs
