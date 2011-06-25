@@ -16,10 +16,10 @@ Data-Files:    tests/Test.hs
 
 Source-Repository head
     type: git
-    location: git://github.com/audreyt/string-quote.git
+    location: git://github.com/audreyt/string-qq.git
 
 library
     extensions:      TemplateHaskell
     build-depends:   base > 3 && < 6, template-haskell >= 2.5
     hs-source-dirs:  src
-    exposed-modules: Data.String.Quote
+    exposed-modules: Data.String.QQ
