@@ -1,5 +1,5 @@
 Name:          string-qq
-Version:       0.0.3
+Version:       0.0.4
 License:       PublicDomain
 License-file:  LICENSE
 Category:      Data
@@ -10,8 +10,8 @@ Stability:     unstable
 Cabal-Version: >= 1.8
 Build-Type:    Simple
 Synopsis:      QuasiQuoter for non-interpolated strings, texts and bytestrings.
-Description:   QuasiQuoter for non-interpolated strings, texts and bytestrings.
-Tested-With:   GHC==6.10.1, GHC==7.0.2, GHC==8.2.2
+Description:   QuasiQuoter for non-interpolated strings, texts and bytestrings, useful for writing multi-line IsString literals.
+Tested-With:   GHC==6.10.1, GHC==7.0.2, GHC==8.2.2, GHC==8.6.5
 
 Source-Repository head
     type: git
